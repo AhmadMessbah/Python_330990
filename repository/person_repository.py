@@ -7,8 +7,8 @@ class PersonRepository:
         self.connection = mysql.connector.connect(
             host="localhost",
             user="root",
-            passwd="root123",
-            database="mft_library"
+            passwd="root1234",
+            database="patient_db"
         )
         self.cursor = self.connection.cursor()
 

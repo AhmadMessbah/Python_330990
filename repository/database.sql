@@ -1,8 +1,8 @@
-create database mft_library;
+create database patient_db;
 
 --
 
-create table mft_library.persons
+create table patient_db.persons
 (
     p_id         int primary key auto_increment,
     name       varchar(30),
@@ -13,32 +13,3 @@ create table mft_library.persons
 );
 
 --
-
-create table mft_library.books
-(
-    b_id        int primary key auto_increment,
-    title     varchar(30),
-    writer    varchar(60),
-    publisher varchar(50),
-    pages     int
-);
-
---
-
-create table mft_library.borrows
-(
-    id        int primary key auto_increment,
-    borrow_date date,
-    return_date date default null,
-
-    person_id int,
-    foreign key (person_id) references mft_library.persons(p_id),
-
-    book_id int,
-    foreign key (book_id) references mft_library.books(b_id)
-);
-
-CREATE VIEW BORROW_REPORT AS
-SELECT * FROM BORROWS
-JOIN PERSONS ON PERSONS.P_ID=BORROWS.PERSON_ID
-JOIN BOOKS ON BOOKS.B_ID = BORROWS.BOOK_ID;
