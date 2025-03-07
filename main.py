@@ -6,6 +6,6 @@ from view.person_view import PersonView
 # create_database()
 
 ui = PersonView()
-# ui = BookView()
-# ui = BorrowView()
+# ui = information()
+# ui = prescription()
 
