@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timing Info</title>
+    <style>
+        table, td, th, tr {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Timing Info</h1>
+
+<form action="/timings" method="post"><br><br>
+    <input type="date" name="date" placeholder="Date"><br><br>
+    <input type="time" name="start_time" placeholder="Start Time"><br><br>
+    <input type="time" name="end_time" placeholder="End Time"><br><br>
+    <input type="text" name="status" placeholder="Status"><br><br>
+    <input type="text" name="doctor_name" placeholder="Doctor Name"><br><br>
+    <input type="submit" value="Save">
+</form>
+<br><br><br>
+<table>
+    <thead>
+    <th>Id</th>
+    <th>Date</th>
+    <th>Start Time</th>
+    <th>End Time</th>
+    <th>Status</th>
+    <th>Doctor Name</th>
+    <th>Operation</th>
+    </thead>
+    <tbody>
+    {% for timing in timing_list %}
+    <tr>
+        <td>{{timing.id}}</td>
+        <td>{{timing.date}}</td>
+        <td>{{timing.start_time}}</td>
+        <td>{{timing.end_time}}</td>
+        <td>{{timing.status}}</td>
+        <td>{{timing.doctor_name}}</td>
+        <td>
+            <button>Edit</button>
+            <button>Remove</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Info</title>
+    <style>
+        table, td, th, tr {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Customer Info</h1>
+
+<form action="/customers" method="post"><br><br>
+    <input type="text" name="first_name" placeholder="First Name"><br><br>
+    <input type="text" name="family_name" placeholder="Family Name"><br><br>
+    <input type="text" name="gender" placeholder="Gender"><br><br>
+    <input type="text" name="phone" placeholder="Phone"><br><br>
+    <input type="date" name="birth_date" placeholder="Birth Date"><br><br>
+    <input type="text" name="medical_history" placeholder="Medical History"><br><br>
+    <input type="submit" value="Save">
+</form>
+<br><br><br>
+<table>
+    <thead>
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Family Name</th>
+    <th>Gender</th>
+    <th>Phone</th>
+    <th>Birth Date</th>
+    <th>Medical History</th>
+    <th>Operation</th>
+    </thead>
+    <tbody>
+    {% for customer in customer_list %}
+    <tr>
+        <td>{{customer.id}}</td>
+        <td>{{customer.first_name}}</td>
+        <td>{{customer.family_name}}</td>
+        <td>{{customer.gender}}</td>
+        <td>{{customer.phone}}</td>
+        <td>{{customer.birth_date}}</td>
+        <td>{{customer.medical_history}}</td>
+        <td>
+            <button>Edit</button>
+            <button>Remove</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

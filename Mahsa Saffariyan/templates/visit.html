@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visit Info</title>
+    <style>
+        table, td, th, tr {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<h1>Visit Info</h1>
+
+<form action="/visits" method="post"><br><br>
+    <input type="text" name="customer_id" placeholder="Customer Id"><br><br>
+    <input type="text" name="schedule_id" placeholder="Schedule Id"><br><br>
+    <input type="text" name="reason" placeholder="Reason"><br><br>
+    <input type="number" name="fee" placeholder="Fee"><br><br>
+    <input type="text" name="visit_status" placeholder="Visit Status"><br><br>
+    <input type="submit" value="Save">
+</form>
+<br><br><br>
+<table>
+    <thead>
+    <th>Id</th>
+    <th>Customer Id</th>
+    <th>Schedule Id</th>
+    <th>Reason</th>
+    <th>Fee</th>
+    <th>Visit Status</th>
+    <th>Operation</th>
+    </thead>
+    <tbody>
+    {% for visit in visit_list %}
+    <tr>
+        <td>{{visit.id}}</td>
+        <td>{{visit.customer_id}}</td>
+        <td>{{visit.schedule_id}}</td>
+        <td>{{visit.reason}}</td>
+        <td>{{visit.fee}}</td>
+        <td>{{visit.visit_status}}</td>
+        <td>
+            <button>Edit</button>
+            <button>Remove</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
